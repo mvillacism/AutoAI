@@ -1,7 +1,7 @@
 Training
 ==============================
 
-Project Organization
+Organization
 ------------
 
     ├── LICENSE
