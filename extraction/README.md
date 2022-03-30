@@ -1,7 +1,7 @@
 Extraction
 ==============================
 
-Project Organization
+Organization
 ------------
 
     ├── LICENSE
