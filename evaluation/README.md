@@ -1,7 +1,7 @@
 Evaluation
 ==============================
 
-Project Organization
+Organization
 ------------
 
     ├── LICENSE
