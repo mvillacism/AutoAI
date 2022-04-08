@@ -32,6 +32,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy our image') {
+            steps {
+                script {
+                    docker.withRegistry('' , 'dockerhub') {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
         
     }
 }
