@@ -7,9 +7,8 @@ pipeline {
             steps {
 		    
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub') {
-                        dockerImage1 = docker.build ("autoai/evaluation:latest", "./evaluation")
-                    
+                    dockerImage1 = docker.build ("mvillacism/evaluation:latest", "./evaluation")
+                    docker.withRegistry('', 'dockerhub') {
                         dockerImage1.push()
                     }
                 }
