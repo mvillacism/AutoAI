@@ -7,7 +7,11 @@ pipeline {
             steps {
 		    
                 script {
-                    dockerImage1 = docker.build ("autoai/evaluation:latest", "./evaluation")
+                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub') {
+                        dockerImage1 = docker.build ("autoai/evaluation:latest", "./evaluation")
+                    
+                        dockerImage1.push()
+                    }
                 }
                 script {
                     dockerImage2 = docker.build ("autoai/extraction:latest", "./extraction")
@@ -32,15 +36,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy our image') {
-            steps {
-                script {
-                    docker.withRegistry('', 'dockerhub') {
-                        dockerImage1.push()
-                    }
-                }
-            }
-        }
+  
         
     }
 }
