@@ -7,36 +7,36 @@ pipeline {
             steps {
 		    
                 script {
-                    dockerImage = docker.build ("autoai/evaluation:latest", "./evaluation")
+                    dockerImage1 = docker.build ("autoai/evaluation:latest", "./evaluation")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/extraction:latest", "./extraction")
+                    dockerImage2 = docker.build ("autoai/extraction:latest", "./extraction")
                 }
                 script {
-                   dockerImage = docker.build ("autoai/fusion:latest", "./fusion")
+                   dockerImage3 = docker.build ("autoai/fusion:latest", "./fusion")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/imputation:latest", "./imputation")
+                    dockerImage4 = docker.build ("autoai/imputation:latest", "./imputation")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/preparation:latest", "./preparation")
+                    dockerImage5 = docker.build ("autoai/preparation:latest", "./preparation")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/selection:latest", "./selection")
+                    dockerImage6 = docker.build ("autoai/selection:latest", "./selection")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/trainig:latest", "./training")
+                    dockerImage7 = docker.build ("autoai/trainig:latest", "./training")
                 }
                 script {
-                    dockerImage = docker.build ("autoai/validation:latest", "./validation")
+                    dockerImage8 = docker.build ("autoai/validation:latest", "./validation")
                 }
             }
         }
         stage('Deploy our image') {
             steps {
                 script {
-                    docker.withRegistry('' , 'dockerhub') {
-                        dockerImage.push()
+                    docker.withRegistry('', 'dockerhub') {
+                        dockerImage1.push()
                     }
                 }
             }
