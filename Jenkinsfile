@@ -12,7 +12,6 @@ pipeline {
                         dockerImage.push()
                     }
     
-            
                     dockerImage = docker.build ("autoaiproject/extraction:latest", "./extraction")
                     docker.withRegistry('', 'dockerhub') {
                         dockerImage.push()
